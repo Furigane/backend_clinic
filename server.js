@@ -7,11 +7,11 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-  host: 'sql8.freesqldatabase.com',
+  host: process.env.DB_HOST,
   port: 3306,
-  user: 'sql8783607',
-  password: 'K74tsZKZDL',
-  database: 'sql8783607'
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE
 });
 
 app.post('/api/records', (req, res) => {
